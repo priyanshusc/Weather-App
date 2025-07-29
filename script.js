@@ -1,4 +1,4 @@
-let apiKey = "ad9cb526279cb99a8dd750f6edd27065";
+let apiKey = "YOUR_API_KEY";
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
     let searchBox = document.querySelector(".search input");
@@ -19,7 +19,7 @@ let apiKey = "ad9cb526279cb99a8dd750f6edd27065";
         const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&namePrefix=${query}`, {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'ca54efa2c3msh99b2af58a42fbc9p1556d3jsne48e2041d80c', // replace with your key
+                'X-RapidAPI-Key': "YOUR_API_KEY"; // replace with your key
                 'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
             }
         });
