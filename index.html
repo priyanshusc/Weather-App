@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body
+  class="bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] flex justify-center items-center min-h-screen font-poppins p-4">
+    <div
+        class="card hover:shadow-[1px_1px_20px_rgba(255,255,255,0.4)] xsm:mx-4  xsm-sm:w-[370px] md:w-[420px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6 flex flex-col gap-5 text-white  transition-all duration-300">
+
+        <!-- Title -->
+        <h1 class="xsm-sm:text-2xl md:text-3xl xsm:text-xl font-bold text-center font-montserrat tracking-wide">🌤️ Weather Forecast</h1>
+
+        <div class="relative">
+            <!-- Search -->
+            <div
+                class="search flex items-center justify-between bg-white/10 border border-white/20 rounded-full px-5 xsm-sm:py-2 mt-1 xsm:py-1">
+                <input class="h-10 text-white placeholder-white/60 bg-transparent outline-none border-none w-full pr-3"
+                    placeholder="Enter city name...">
+                <button type="button">
+                    <i class="fa-solid fa-magnifying-glass text-white hover:text-gray-600 text-lg mr-2"></i>
+                </button>
+            </div>
+            <ul class="suggestions absolute left-0 w-full bg-[#2d084dd5] border border-white/20 rounded-xl text-white z-10 max-h-60 overflow-y-auto hidden shadow-lg">
+
+            </ul>
+        </div>
+
+        <!-- Main weather info -->
+        <div class="flex items-center justify-between mt-4">
+            <!-- Icon and Temp -->
+            <div class="flex flex-col items-center">
+                <img class="weather-icon  ml-4 w-32" src="./images/rain.png" alt="">
+                <h1 class="temp text-3xl xsm-sm:text-5xl font-semibold mt-2 ml-4 xsm:text-4xl">22°C</h1>
+            </div>
+
+            <!-- City and conditions -->
+            <div class="flex flex-col items-end justify-center pr-3 text-right gap-1">
+                <h2 class="city text-3xl font-semibold max-w-[180px] break-words">Delhi</h2>
+                <p class="text-white/70 text-sm italic">Updated just now</p>
+            </div>
+        </div>
+
+        <!-- Details Row -->
+        <div class="grid grid-cols-2 gap-4 mt-5">
+            <!-- Humidity -->
+            <div class="flex items-center justify-center gap-3 bg-white/5 border border-white/20 rounded-xl py-3 px-4 shadow-inner">
+                <img class="h-6" src="./images/humidity.png" alt="">
+                <div>
+                    <div class="humidity text-xl font-medium">48%</div>
+                    <p class="text-xs text-white/60">Humidity</p>
+                </div>
+            </div>
+
+            <!-- Wind Speed -->
+            <div class="flex items-center justify-center gap-3 bg-white/5 border border-white/20 rounded-xl py-3 px-4 shadow-inner">
+                <img class="h-6" src="./images/wind.png" alt="">
+                <div>
+                    <div class="wind text-xl font-medium">15 km/h</div>
+                    <p class="text-xs text-white/60">Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>
