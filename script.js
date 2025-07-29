@@ -1,6 +1,9 @@
 let apiKey = "YOUR_API_KEY";
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
+if (apiKey === "YOUR_API_KEY") {
+    alert("⚠️ Please add your own OpenWeather API key to use this App.");
+}
     let searchBox = document.querySelector(".search input");
     let searchBtn = document.querySelector(".search button");
     let suggestionBox = document.querySelector(".suggestions");
