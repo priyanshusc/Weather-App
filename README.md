@@ -41,14 +41,16 @@ cd weather-app
 
 ### 2️⃣ Add Your API Keys
 Open the script.js file and replace the placeholders:
-
+```
 let apiKey = "YOUR_API_KEY"; // <-- Your OpenWeatherMap API key
+```
 In the GeoDB API fetch call:
-
+```
 headers: {
   'X-RapidAPI-Key': 'YOUR_RAPIDAPI_KEY', // <-- Your RapidAPI key
   'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
 }
+```
 💡 If YOUR_API_KEY is not replaced, the app will show an alert asking you to provide your key.
 
 ### ▶️ Run Locally
