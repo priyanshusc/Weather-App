@@ -1,14 +1,17 @@
-let apiKey = "YOUR_API_KEY";
+window.onload = function () {
+    // ✅ Now everything runs AFTER the page fully loads
+
+    let apiKey = "YOUR_API_KEY";
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
-if (apiKey === "YOUR_API_KEY") {
-    alert("⚠️ Please add your own OpenWeather API key to use this app.");
-}
+    if (apiKey === "YOUR_API_KEY") {
+        alert("⚠️ Please add your own OpenWeather API key to use this app.");
+    }
+
     let searchBox = document.querySelector(".search input");
     let searchBtn = document.querySelector(".search button");
     let suggestionBox = document.querySelector(".suggestions");
 
-    
     function debounce(fn, delay) {
         let timeout;
         return function (...args) {
@@ -17,7 +20,6 @@ if (apiKey === "YOUR_API_KEY") {
         };
     }
 
-    
     async function getCitySuggestions(query) {
         const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&namePrefix=${query}`, {
             method: 'GET',
@@ -30,7 +32,6 @@ if (apiKey === "YOUR_API_KEY") {
         return data.data.map(city => `${city.city}, ${city.countryCode}`);
     }
 
-    
     searchBox.addEventListener("input", debounce(async () => {
         const query = searchBox.value.trim();
         if (!query) {
@@ -57,7 +58,7 @@ if (apiKey === "YOUR_API_KEY") {
                 checkWeather(item.innerText);
             });
         });
-    }, 100)); 
+    }, 100));
 
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".search")) {
@@ -65,12 +66,11 @@ if (apiKey === "YOUR_API_KEY") {
         }
     });
 
-    
     async function checkWeather(city) {
         if (apiKey === "YOUR_API_KEY" || !apiKey) {
-        alert("⚠️ Please add your own OpenWeather API key to use this app.");
-        return;
-    }
+            alert("⚠️ Please add your own OpenWeather API key to use this app.");
+            return;
+        }
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const data = await response.json();
         if (data.cod !== 200) {
@@ -94,21 +94,21 @@ if (apiKey === "YOUR_API_KEY") {
         }
     }
 
-    
-   if (apiKey !== "YOUR_API_KEY" && apiKey) {
-    checkWeather("Bangalore");
-}
+    if (apiKey !== "YOUR_API_KEY" && apiKey) {
+        checkWeather("Bangalore");
+    }
 
     searchBtn.addEventListener("click", () => {
-    setTimeout(() => {
-        suggestionBox.classList.add("hidden");
-        checkWeather(searchBox.value);
-    }, 100);
-});
+        setTimeout(() => {
+            suggestionBox.classList.add("hidden");
+            checkWeather(searchBox.value);
+        }, 100);
+    });
 
-searchBox.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        checkWeather(searchBox.value);
-        suggestionBox.classList.add("hidden");
-    }
-});
+    searchBox.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            checkWeather(searchBox.value);
+            suggestionBox.classList.add("hidden");
+        }
+    });
+};
