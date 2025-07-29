@@ -22,7 +22,7 @@ if (apiKey === "YOUR_API_KEY") {
         const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&namePrefix=${query}`, {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': "YOUR_API_KEY";
+                'X-RapidAPI-Key': "YOUR_API_KEY",
                 'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
             }
         });
