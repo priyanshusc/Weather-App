@@ -2,13 +2,13 @@ let apiKey = "YOUR_API_KEY";
     let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 if (apiKey === "YOUR_API_KEY") {
-    alert("⚠️ Please add your own OpenWeather API key to use this App.");
+    alert("⚠️ Please add your own OpenWeather API key to use this app.");
 }
     let searchBox = document.querySelector(".search input");
     let searchBtn = document.querySelector(".search button");
     let suggestionBox = document.querySelector(".suggestions");
 
-    // Debounce function to avoid too many API calls
+    
     function debounce(fn, delay) {
         let timeout;
         return function (...args) {
@@ -17,12 +17,12 @@ if (apiKey === "YOUR_API_KEY") {
         };
     }
 
-    // GeoDB API for city suggestions
+    
     async function getCitySuggestions(query) {
         const res = await fetch(`https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=5&namePrefix=${query}`, {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': "YOUR_API_KEY"; // replace with your key
+                'X-RapidAPI-Key': "YOUR_API_KEY";
                 'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
             }
         });
@@ -30,7 +30,7 @@ if (apiKey === "YOUR_API_KEY") {
         return data.data.map(city => `${city.city}, ${city.countryCode}`);
     }
 
-    // Show dropdown as you type
+    
     searchBox.addEventListener("input", debounce(async () => {
         const query = searchBox.value.trim();
         if (!query) {
@@ -50,7 +50,6 @@ if (apiKey === "YOUR_API_KEY") {
 
         suggestionBox.classList.remove("hidden");
 
-        // Handle clicking a suggestion
         document.querySelectorAll(".suggestions li").forEach(item => {
             item.addEventListener("click", () => {
                 searchBox.value = item.innerText;
@@ -58,17 +57,20 @@ if (apiKey === "YOUR_API_KEY") {
                 checkWeather(item.innerText);
             });
         });
-    }, 100)); // 500ms debounce
+    }, 100)); 
 
-    // Hide on click outside
     document.addEventListener("click", (e) => {
         if (!e.target.closest(".search")) {
             suggestionBox.classList.add("hidden");
         }
     });
 
-    // Fetch weather data
+    
     async function checkWeather(city) {
+        if (apiKey === "YOUR_API_KEY" || !apiKey) {
+        alert("⚠️ Please add your own OpenWeather API key to use this app.");
+        return;
+    }
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         const data = await response.json();
         if (data.cod !== 200) {
@@ -92,14 +94,14 @@ if (apiKey === "YOUR_API_KEY") {
         }
     }
 
-    // Default load
+    
     checkWeather("Bangalore");
 
     searchBtn.addEventListener("click", () => {
     setTimeout(() => {
         suggestionBox.classList.add("hidden");
         checkWeather(searchBox.value);
-    }, 100); // Small delay allows click on suggestion to register first
+    }, 100);
 });
 
 searchBox.addEventListener("keydown", (e) => {
