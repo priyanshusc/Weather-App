@@ -1,23 +1,42 @@
-# Weather-AppA simple and responsive weather web app built using HTML, CSS, JavaScript, and Tailwind CSS.
-As you type the city name, it gives live suggestions using an API and shows the current weather data like temperature, weather condition, and location info.
+# 🌦️ Weather App
 
-🔧 Features
-🔍 City name suggestions while typing
+A **responsive** and **lightweight** weather web application built using **HTML**, **Tailwind CSS**, and **JavaScript**.
 
-🌡️ Displays real-time weather data
+As you type a city name, it provides **live suggestions** using an API and displays the **real-time weather information** like temperature, weather conditions, and location.
 
-📱 Responsive design with Tailwind CSS
+---
 
-⚡ Smooth and fast UI experience
+## ✨ Features
 
-🔄 API-integrated for fresh data
+- 🔍 **City Suggestions** while typing (via API)  
+- 🌤️ **Live Weather Data** (temperature, condition, etc.)  
+- ⚡ **Fast & Responsive UI** with Tailwind CSS  
+- 📱 **Mobile-Friendly Design**  
+- 🔄 **Real-Time Data Fetching**
 
-💡 Tech Used
-HTML
+---
 
-Tailwind CSS
+## 🛠️ Technologies Used
 
-JavaScript
+- **HTML**  
+- **Tailwind CSS**  
+- **JavaScript**  
+- **Weather API** (for city suggestions & weather info)
 
-Weather API (for city suggestions & data)
+---
+
+## 📸 Preview
+
+<img width="1014" height="602" alt="image" src="https://github.com/user-attachments/assets/c50963c8-cc6d-46b6-aa20-d8d8d7de4ca9" />
+
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository  
+2. Open `index.html` in any browser  
+3. Start typing a city name and explore the weather!
+
+---
 
