@@ -95,7 +95,9 @@ if (apiKey === "YOUR_API_KEY") {
     }
 
     
+   if (apiKey !== "YOUR_API_KEY" && apiKey) {
     checkWeather("Bangalore");
+}
 
     searchBtn.addEventListener("click", () => {
     setTimeout(() => {
